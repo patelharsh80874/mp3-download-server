@@ -49,12 +49,13 @@ app.get("/", (req, res) => {
             border-radius: 12px;
             padding-left: 5%;
             width: 90%;
+            height:100vh;
             // max-width: 500px;
             // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 17px;
             text-align: center;
             color: #ffcb00;
             margin-bottom: 20px;
@@ -152,6 +153,9 @@ app.get("/", (req, res) => {
 
             <label for="album">Album Name:</label>
             <input type="text" id="album" name="album" required>
+
+            <label for="album">Artist Name:</label>
+            <input type="text" id="artist" name="artist" required>
 
             <button type="submit">Submit</button>
             <div id="message"></div>

@@ -1,5 +1,6 @@
 
 const express = require("express");
+const cors = require("cors");
 const axios = require("axios");
 const ffmpeg = require("fluent-ffmpeg");
 const fs = require("fs");
@@ -7,6 +8,7 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
 const app = express();
+app.use(cors());
 
 // Ensure temp folder exists or create it
 const tempFolder = path.resolve(__dirname, "temp");
@@ -218,11 +220,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/generate-audio", async (req, res) => {
-  const { audioUrl, imageUrl, songName, year, album } = req.query;
+  const { audioUrl, imageUrl, songName, year, album,artist } = req.query;
 
-  if (!audioUrl || !imageUrl || !songName || !year || !album) {
+  if (!audioUrl || !imageUrl || !songName || !year || !album || !artist) {
     return res.status(400).send({
-      error: "Audio URL, Image URL, Song Name, Year, and Album are required!",
+      error: "Audio URL, Image URL, Song Name, Year, Album and Artist are required!",
     });
   }
 
@@ -258,7 +260,8 @@ app.get("/generate-audio", async (req, res) => {
       .addInput(convertedImagePath)
       .outputOptions("-map", "0", "-map", "1", "-c", "copy")
       .outputOptions("-metadata", `title=${songName}`)
-      .outputOptions("-metadata", `year=${year}`)
+      .outputOptions("-metadata", `artist=${artist}`)
+      .outputOptions("-metadata", `date=${year}`)
       .outputOptions("-metadata", `album=${album}`)
       .outputOptions("-id3v2_version", "3")
       .output(outputPath)

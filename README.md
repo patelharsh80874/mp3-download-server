@@ -4,11 +4,10 @@ The Ultimate Songs Download Server/MP3/Audio Metadata Embedder allows users to g
 
 ## Features
 - Embed cover art into MP3 files.
-- Add metadata such as song title, year, and album name.
+- Add metadata such as song title, year, album name, and artist name.
 - Process audio and images directly from URLs.
 
   <img width="959" alt="image" src="https://github.com/user-attachments/assets/4b971346-7b73-40da-a44f-492829756a2e" />
-
 
 ---
 
@@ -23,20 +22,21 @@ Generates an MP3 file with embedded cover art and metadata.
 #### **Query Parameters**
 | Parameter    | Type     | Required | Description                                           |
 |--------------|----------|----------|-------------------------------------------------------|
-| `audioUrl`   | `string` | Yes      | The URL of the audio file to process.                |
-| `imageUrl`   | `string` | Yes      | The URL of the cover image to embed.                 |
-| `songName`   | `string` | Yes      | The name of the song.                                |
-| `year`       | `string` | Yes      | The year the song was released.                      |
-| `album`      | `string` | Yes      | The album name to embed in the metadata.             |
+| `audioUrl`   | `string` | Yes      | The URL of the audio file to process.                 |
+| `imageUrl`   | `string` | Yes      | The URL of the cover image to embed.                  |
+| `songName`   | `string` | Yes      | The name of the song.                                 |
+| `year`       | `string` | Yes      | The year the song was released.                       |
+| `album`      | `string` | Yes      | The album name to embed in the metadata.              |
+| `artist`     | `string` | Yes      | The artist name to embed in the metadata.             |
 
 #### Example Request
 ```bash
-GET https://the-ultimate-songs-download-server.up.railway.app/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}
+GET https://the-ultimate-songs-download-server.up.railway.app/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}&artist={ArtistName}
 ```
 
 #### Example Usage
 ```bash
-curl "https://the-ultimate-songs-download-server.up.railway.app/generate-audio?audioUrl=https://example.com/audio.mp4&imageUrl=https://example.com/image.jpg&songName=MySong&year=2024&album=MyAlbum"
+curl "https://the-ultimate-songs-download-server.up.railway.app/generate-audio?audioUrl=https://example.com/audio.mp4&imageUrl=https://example.com/image.jpg&songName=MySong&year=2024&album=MyAlbum&artist=MyArtist"
 ```
 
 ---
@@ -44,7 +44,7 @@ curl "https://the-ultimate-songs-download-server.up.railway.app/generate-audio?a
 ## How It Works
 1. **Audio Processing**: The server downloads the audio file from the given `audioUrl` and converts it to an MP3 format with a 320kbps bitrate.
 2. **Image Processing**: The cover image is downloaded from `imageUrl` and converted to a compatible JPEG format if necessary.
-3. **Metadata Embedding**: Metadata such as `songName`, `year`, and `album` is embedded into the MP3 file.
+3. **Metadata Embedding**: Metadata such as `songName`, `year`, `album`, and `artist` is embedded into the MP3 file.
 4. **File Delivery**: The processed MP3 file is served as a downloadable file.
 
 ---
@@ -66,7 +66,7 @@ curl "https://the-ultimate-songs-download-server.up.railway.app/generate-audio?a
 - **Status Code**: `400 Bad Request`
   ```json
   {
-      "error": "Audio URL, Image URL, Song Name, Year, and Album are required!"
+      "error": "Audio URL, Image URL, Song Name, Year, Album, and Artist are required!"
   }
   ```
 - **Status Code**: `500 Internal Server Error`
@@ -84,19 +84,19 @@ The server is hosted on multiple platforms:
 
 ### Railway
 - **Base URL**: `https://the-ultimate-songs-download-server.up.railway.app`
-- **API Endpoint**: `https://the-ultimate-songs-download-server.up.railway.app/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}`
+- **API Endpoint**: `https://the-ultimate-songs-download-server.up.railway.app/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}&artist={ArtistName}`
 
 ### Render
 - **Base URL**: `https://mp3-download-server.onrender.com`
-- **API Endpoint**: `https://mp3-download-server.onrender.com/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}`
+- **API Endpoint**: `https://mp3-download-server.onrender.com/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}&artist={ArtistName}`
 
 ### Back4App
 - **Base URL**: `https://theultimatesongsdownloadserver-yavzqarj.b4a.run`
-- **API Endpoint**: `https://theultimatesongsdownloadserver-yavzqarj.b4a.run/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}`
+- **API Endpoint**: `https://theultimatesongsdownloadserver-yavzqarj.b4a.run/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}&artist={ArtistName}`
 
 #### Example Usage
 ```bash
-curl "https://mp3-download-server.onrender.com/generate-audio?audioUrl=https://example.com/audio.mp4&imageUrl=https://example.com/image.jpg&songName=MySong&year=2024&album=MyAlbum"
+curl "https://mp3-download-server.onrender.com/generate-audio?audioUrl=https://example.com/audio.mp4&imageUrl=https://example.com/image.jpg&songName=MySong&year=2024&album=MyAlbum&artist=MyArtist"
 ```
 
 ---
@@ -121,7 +121,7 @@ curl "https://mp3-download-server.onrender.com/generate-audio?audioUrl=https://e
 
 4. Access the server locally:
    ```
-   http://localhost:3000/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}
+   http://localhost:3000/generate-audio?audioUrl={AudioURL}&imageUrl={ImageURL}&songName={Name}&year={Year}&album={AlbumName}&artist={ArtistName}
    ```
 
 ---

@@ -1,11 +1,14 @@
-# The Ultimate Songs Download Server
+# The Ultimate Songs Download Server/MP3/Audio Metadata Embedder
 
-The Ultimate Songs Download Server allows users to generate audio files with embedded metadata and cover art. This server leverages Node.js, Express, and FFmpeg to provide seamless functionality for downloading customized MP3 files.
+The Ultimate Songs Download Server/MP3/Audio Metadata Embedder allows users to generate audio files with embedded metadata and cover art. This server leverages Node.js, Express, and FFmpeg to provide seamless functionality for downloading customized MP3 files.
 
 ## Features
 - Embed cover art into MP3 files.
 - Add metadata such as song title, year, and album name.
 - Process audio and images directly from URLs.
+
+  <img width="959" alt="image" src="https://github.com/user-attachments/assets/4b971346-7b73-40da-a44f-492829756a2e" />
+
 
 ---
 

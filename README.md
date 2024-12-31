@@ -7,7 +7,8 @@ The Ultimate Songs Download Server/MP3/Audio Metadata Embedder allows users to g
 - Add metadata such as song title, year, album name, and artist name.
 - Process audio and images directly from URLs.
 
-  <img width="959" alt="image" src="https://github.com/user-attachments/assets/4b971346-7b73-40da-a44f-492829756a2e" />
+  <img width="959" alt="image" src="https://github.com/user-attachments/assets/39b6164e-6404-43b1-845f-a361de2c4e5a" />
+
 
 ---
 

@@ -7,7 +7,7 @@ backend:
           type: httpServer
     language:
         name: js
-    path: .
+    path: ./
     scripts:
         deploy:
             - npm install
